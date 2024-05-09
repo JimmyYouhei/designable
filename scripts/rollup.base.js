@@ -1,11 +1,17 @@
-import typescript from 'rollup-plugin-typescript2'
-import resolve from 'rollup-plugin-node-resolve'
-import postcss from 'rollup-plugin-postcss'
-import commonjs from '@rollup/plugin-commonjs'
-import NpmImport from 'less-plugin-npm-import'
-import externalGlobals from 'rollup-plugin-external-globals'
-import { terser } from 'rollup-plugin-terser'
-import path from 'path'
+const typescript  = require('rollup-plugin-typescript2')
+const resolve = require('rollup-plugin-node-resolve')
+const postcss = require('rollup-plugin-postcss')
+const commonjs = require('@rollup/plugin-commonjs')
+const NpmImport = require('less-plugin-npm-import')
+const externalGlobals = require('rollup-plugin-external-globals')
+const  {terser}  = require('rollup-plugin-terser')
+const path = require('path')
+// import postcss from 'rollup-plugin-postcss'
+// import commonjs from '@rollup/plugin-commonjs'
+// import NpmImport from 'less-plugin-npm-import'
+// import externalGlobals from 'rollup-plugin-external-globals'
+// import { terser } from 'rollup-plugin-terser'
+// import path from 'path'
 
 const presets = () => {
   const externals = {
@@ -65,7 +71,7 @@ const presets = () => {
 
 const inputFilePath = path.join(process.cwd(), 'src/index.ts')
 
-export const removeImportStyleFromInputFilePlugin = () => ({
+exports.removeImportStyleFromInputFilePlugin = () => ({
   name: 'remove-import-style-from-input-file',
   transform(code, id) {
     // 样式由 build:style 进行打包，所以要删除入口文件上的 `import './style'`
@@ -77,7 +83,7 @@ export const removeImportStyleFromInputFilePlugin = () => ({
   },
 })
 
-export default (filename, targetName, ...plugins) => [
+module.exports = (filename, targetName, ...plugins) => [
   {
     input: 'src/index.ts',
     output: {

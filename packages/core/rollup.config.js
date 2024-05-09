@@ -1,3 +1,3 @@
-import baseConfig from '../../scripts/rollup.base.js'
+const baseConfig = require( '../../scripts/rollup.base.js')
 
-export default baseConfig('designable.core', 'Designable.Core')
+module.exports =  baseConfig('designable.core', 'Designable.Core')

@@ -2,7 +2,6 @@ import baseConfig from './webpack.base'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 //import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
-import webpack from 'webpack'
 import path from 'path'
 
 const PORT = 3000
@@ -41,7 +40,6 @@ export default {
         chunk: ['playground'],
       },
     ]),
-    new webpack.HotModuleReplacementPlugin(),
     // new BundleAnalyzerPlugin()
   ],
   devServer: {

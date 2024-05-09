@@ -1,36 +1,37 @@
 import path from 'path'
-import fs from 'fs-extra'
+// import fs from 'fs-extra'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import webpack from "webpack";
 //import { getThemeVariables } from 'antd/dist/theme'
 
-const getAlias = () => {
-  const packagesDir = path.resolve(__dirname, '../../../packages')
-  const packages = fs.readdirSync(packagesDir)
-  const pkg = fs.readJSONSync(path.resolve(__dirname, '../package.json'))
-  const deps = Object.entries(pkg.dependencies).reduce((deps, [key]) => {
-    if (key.includes('@designable/')) {
-      return deps
-    } else if (key.includes('react')) {
-      deps[key] = require.resolve(key)
-      return deps
-    }
-    deps[key] = key
-    return deps
-  }, {})
-  const alias = packages
-    .map((v) => path.join(packagesDir, v))
-    .filter((v) => {
-      return !fs.statSync(v).isFile()
-    })
-    .reduce((buf, _path) => {
-      const name = path.basename(_path)
-      return {
-        ...buf,
-        [`@designable/${name}$`]: `${_path}/src`,
-      }
-    }, deps)
-  return alias
-}
+// const getAlias = () => {
+//   const packagesDir = path.resolve(__dirname, '../../../packages')
+//   const packages = fs.readdirSync(packagesDir)
+//   const pkg = fs.readJSONSync(path.resolve(__dirname, '../package.json'))
+//   const deps = Object.entries(pkg.dependencies).reduce((deps, [key]) => {
+//     if (key.includes('@designable/')) {
+//       return deps
+//     } else if (key.includes('react')) {
+//       deps[key] = require.resolve(key)
+//       return deps
+//     }
+//     deps[key] = key
+//     return deps
+//   }, {})
+//   const alias = packages
+//     .map((v) => path.join(packagesDir, v))
+//     .filter((v) => {
+//       return !fs.statSync(v).isFile()
+//     })
+//     .reduce((buf, _path) => {
+//       const name = path.basename(_path)
+//       return {
+//         ...buf,
+//         [`@designable/${name}$`]: `${_path}/src`,
+//       }
+//     }, deps)
+//   return alias
+// }
 export default {
   mode: 'development',
   devtool: 'inline-source-map', // 嵌入到源文件中
@@ -48,7 +49,9 @@ export default {
   resolve: {
     modules: ['node_modules'],
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
-    alias: getAlias(),
+    alias: {
+      '~': path.resolve(__dirname, '../node_modules'),
+    },
   },
   externals: {
     // '@formily/reactive': 'Formily.Reactive',
@@ -85,7 +88,12 @@ export default {
               // modifyVars: getThemeVariables({
               //   dark: true // 开启暗黑模式
               // }),
-              javascriptEnabled: true,
+              lessOptions: {
+                javascriptEnabled: true,
+                paths: [
+                  path.resolve(__dirname, 'node_modules'),
+                ],
+              },
             },
           },
         ],
@@ -99,4 +107,8 @@ export default {
       },
     ],
   },
+
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+  ]
 }
