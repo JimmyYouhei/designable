@@ -24,27 +24,27 @@
     "start": "webpack-dev-server --config playground/webpack.dev.ts"
   },
   "devDependencies": {
-    "@designable/react-settings-form": "1.0.0-beta.45",
-    "@formily/core": "^2.0.2",
-    "@formily/next": "^2.0.2",
-    "@formily/react": "^2.0.2",
-    "@formily/reactive": "^2.0.2",
-    "@formily/shared": "^2.0.2",
-    "autoprefixer": "^9.0",
-    "file-loader": "^5.0.2",
-    "fs-extra": "^8.1.0",
-    "html-webpack-plugin": "^3.2.0",
-    "mini-css-extract-plugin": "^1.6.0",
-    "monaco-editor-webpack-plugin": "^4.0.0",
-    "raw-loader": "^4.0.0",
-    "react-monaco-editor": "^0.43.0",
-    "style-loader": "^1.1.3",
-    "ts-loader": "^7.0.4",
-    "typescript": "4.1.5",
-    "webpack": "^4.41.5",
-    "webpack-bundle-analyzer": "^3.9.0",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
+    "@designable/react-settings-form": "workspace:^",
+    "@formily/core": "^2.3.1",
+    "@formily/next": "^2.3.1",
+    "@formily/react": "^2.3.1",
+    "@formily/reactive": "^2.3.1",
+    "@formily/shared": "^2.3.1",
+    "autoprefixer": "^10.4.19",
+    "file-loader": "^6.2.0",
+    "fs-extra": "^11.2.0",
+    "html-webpack-plugin": "^5.6.0",
+    "mini-css-extract-plugin": "^2.9.0",
+    "monaco-editor-webpack-plugin": "^7.1.0",
+    "raw-loader": "^4.0.2",
+    "react-monaco-editor": "^0.55.0",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.5",
+    "webpack": "^5.91.0",
+    "webpack-bundle-analyzer": "^4.10.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
   },
   "peerDependencies": {
     "@alifd/next": "^1.23.0",
@@ -61,10 +61,10 @@
     "react-is": ">=16.8.0 || >=17.0.0"
   },
   "dependencies": {
-    "@designable/core": "1.0.0-beta.45",
-    "@designable/formily-setters": "1.0.0-beta.45",
-    "@designable/formily-transformer": "1.0.0-beta.45",
-    "@designable/react": "1.0.0-beta.45"
+    "@designable/core": "workspace:^",
+    "@designable/formily-setters": "workspace:^",
+    "@designable/formily-transformer": "workspace:^",
+    "@designable/react": "workspace:^"
   },
   "publishConfig": {
     "access": "public"

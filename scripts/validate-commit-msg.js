@@ -16,6 +16,12 @@ var resolve = require('path').resolve
 var findup = require('findup')
 var semverRegex = require('semver-regex')
 
+// import fs from 'fs'
+// import util from 'util'
+// import { resolve } from 'path'
+// import findup from 'findup'
+// import semverRegex from 'semver-regex'
+
 var config = getConfig()
 var MAX_LENGTH = config.maxSubjectLength || 100
 var IGNORED = new RegExp(

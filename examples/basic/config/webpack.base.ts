@@ -78,14 +78,15 @@ export default {
         test: /\.less$/,
         use: [
           MiniCssExtractPlugin.loader,
-          { loader: 'css-loader' },
           {
             loader: 'less-loader',
             options: {
               // modifyVars: getThemeVariables({
               //   dark: true // 开启暗黑模式
               // }),
-              javascriptEnabled: true,
+              lessOptions: {
+                javascriptEnabled: true,
+              },
             },
           },
         ],

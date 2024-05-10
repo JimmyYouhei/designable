@@ -23,8 +23,8 @@
     "build:umd": "rollup --config"
   },
   "devDependencies": {
-    "@formily/reactive": "^2.0.2",
-    "@formily/reactive-react": "^2.0.2"
+    "@formily/reactive": "^2.3.1",
+    "@formily/reactive-react": "^2.3.1"
   },
   "peerDependencies": {
     "@formily/reactive": "^2.0.2",
@@ -33,9 +33,9 @@
     "react": "16.x || 17.x"
   },
   "dependencies": {
-    "@designable/core": "1.0.0-beta.45",
-    "@designable/shared": "1.0.0-beta.45",
-    "dateformat": "^4.5.1"
+    "@designable/core": "workspace:^",
+    "@designable/shared": "workspace:^",
+    "dateformat": "^5.0.3"
   },
   "publishConfig": {
     "access": "public"
